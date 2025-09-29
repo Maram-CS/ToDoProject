@@ -91,19 +91,6 @@ const DeleteATodo = async (req,res,next) => {
     }
 }
 
-const userLogin = async(req,res,next) => {
-    try {
-        const {userName,password} = req.body;
-        const user = await ToDoModel.login(userName,password);
-        if(user) {
-            res.status(200).json({user,message:"good job 👌"});
-        }else {
-            res.status(404).json({message:"we have an error someWhere"});
-        }
-        next();
-    }catch(err) {
-        console.error(err);
-    }
-}
 
-export {register,getAll,getAToDo,getAToDoByTitle,UpdateAToDo,DeleteATodo,userLogin};
+
+export {register,getAll,getAToDo,getAToDoByTitle,UpdateAToDo,DeleteATodo};

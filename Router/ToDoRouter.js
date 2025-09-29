@@ -1,6 +1,6 @@
 import {Router} from "express";
-import {register,getAll,getAToDo,getAToDoByTitle,UpdateAToDo,DeleteATodo,userLogin} from "../controller/ToDoController.js";
-
+import {register,getAll,getAToDo,getAToDoByTitle,UpdateAToDo,DeleteATodo} from "../controller/ToDoController.js";
+import userLogin from "../controller/authController.js";
 const router = Router();
 
 router.post("/register",register);
