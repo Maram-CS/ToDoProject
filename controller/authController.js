@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import ToDoModel from "../model/ToDoModel.js";
+import userModel from "../model/userModel.js";
 import {config} from "dotenv";
 
 config();
@@ -10,7 +10,7 @@ const createAToken = (id) => {
 const userLogin = async(req,res,next) => {
     try {
         const {userName,password} = req.body;
-        const user = await ToDoModel.login(userName,password);
+        const user = await userModel.login(userName,password);
         if(user) {
             const Token = createAToken(user._id);
             res.cookie("ToDoCookie",Token,{maxAge:24*3*60*60*1000,httpOnly: true});
